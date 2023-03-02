@@ -1,0 +1,5 @@
+Add you mongo db connection string as a json file here in below given format and save that file as mongodb.json
+
+[{
+    "connectionUrl":"YOUR CONNECTION STRING"
+}]
