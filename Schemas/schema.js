@@ -1,18 +1,11 @@
-const mongoose =require('mongoose')
+const mongoose = require('mongoose');
 
-const {Schema} = mongoose;
+const memberLoginSchema = new mongoose.Schema({
+  Date: { type: Date, required: true },
+  school_name: { type: String, required: true },
+  Users: { type: Number, required: true },
+});
 
-const userSchema = new Schema({
-    Organization:{
-        type:String
-    },
-    TotalUsers:{
-        type: Number
-    },
-    activeUsers:{
-        type:Number
-    }
-})
-const User = mongoose.model('User',userSchema);
+const MemberLogin = mongoose.model('memberlogins', memberLoginSchema);
 
-module.exports = User
+module.exports = MemberLogin;

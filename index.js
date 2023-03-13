@@ -3,14 +3,13 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const data = require('./data/mydata.json')
-const connectDB = require('./src/fetchMongo/MongoFetchData')
+const { connectDB, active, getUsers } = require('./src/fetchMongo/MongoFetchData');
 
 app.use(cors()); 
 app.use(bodyParser.json());
-
+connectDB();
 app.post('/load',(req,res)=>{
-    console.log(req.method);
-    connectDB();
+    getUsers();
     res.status(200).send(data);
 })
 app.listen(8081,()=>{
