@@ -3,7 +3,6 @@ const User = require("../../Schemas/schema");
 const mongoose = require("mongoose");
 
 const uri = connectionString[0].connectionUrl;
-let active;
 const connectDB = async () => {
 
   try {
@@ -58,7 +57,8 @@ async function getUsers() {
       },
       { $sort: { Date: 1 } },
     ]);
-    console.log(result);
+    
+    return result;
   } catch (err) {
     console.error("Error getting aggregation result:", err);
   }
@@ -67,4 +67,4 @@ async function getUsers() {
 // activeUsers = result;
 
 // }
-module.exports = {connectDB,active,getUsers};
+module.exports = {connectDB,getUsers};
